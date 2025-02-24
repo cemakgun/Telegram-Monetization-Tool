@@ -1,7 +1,20 @@
+/**
+ * Database configuration and connection management
+ * This module provides database connectivity using Prisma Client
+ * and includes functions to test and manage database connections
+ */
+
 const { PrismaClient } = require('@prisma/client');
 
+// Initialize Prisma Client instance for database operations
 const prisma = new PrismaClient();
 
+/**
+ * Tests the database connection
+ * Attempts to connect to the database and verifies connectivity
+ * 
+ * @returns {Promise<boolean>} Returns true if connection is successful, false otherwise
+ */
 async function testConnection() {
   try {
     await prisma.$connect();

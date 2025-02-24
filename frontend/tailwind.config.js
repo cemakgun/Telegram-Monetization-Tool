@@ -1,12 +1,24 @@
 /** @type {import('tailwindcss').Config} */
+
+/**
+ * Tailwind CSS Configuration
+ * Defines the design system and customizations for the application
+ * 
+ * Configuration includes:
+ * - Content paths for processing
+ * - Theme customizations
+ * - Color palette with CSS variables
+ * - Border radius utilities
+ */
 module.exports = {
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",  // Process all app directory files
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",  // Process all component files
   ],
   theme: {
     extend: {
       colors: {
+        // Custom color palette using CSS variables
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -42,11 +54,12 @@ module.exports = {
         },
       },
       borderRadius: {
+        // Custom border radius utilities
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [],
+  plugins: [],  // No additional plugins used
 }
