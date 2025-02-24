@@ -27,7 +27,7 @@
       "name": "Docker Debug",
       "type": "docker",
       "request": "attach",
-      "platform": "node"
+      "platform": "netCore"
     }
   ],
   "compounds": [
