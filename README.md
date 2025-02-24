@@ -29,19 +29,19 @@ The Telegram Monetization Tool is a full-stack SaaS platform designed to help us
   - Docker setup
 
 ## Development Phases
-1. **Initial Setup & Credentials**
+1. **Initial Setup & Credentials** (Completed)
    - PostgreSQL Installation & Setup
    - Prisma Initial Setup
    - Clerk Authentication Setup
    - Environment Configuration
    - Git Repository Setup
 
-2. **Infrastructure & Debug Setup**
+2. **Infrastructure & Debug Setup** (Completed)
    - Docker Configuration
    - Debug & Development Environment
    - Redis Setup
 
-3. **Core Backend Development**
+3. **Core Backend Development** (Completed)
    - Express.js Server Setup
    - Database Models & Migrations
    - Clerk Authentication Integration
@@ -49,29 +49,43 @@ The Telegram Monetization Tool is a full-stack SaaS platform designed to help us
    - Basic API Endpoints
    - Core Service Layer
 
-4. **Frontend Foundation**
+4. **Frontend Foundation** (Completed)
    - Next.js Project Setup
    - Admin Dashboard Template
-   - Core Components
-   - API Integration
-   - State Management
+   - Core Components (Card, Layout)
+   - Basic Pages (Dashboard, Channels, Settings)
    - Clerk Auth UI Integration
 
-5. **Advanced Features**
+5. **Advanced Features** (Pending)
+   - API Integration
+   - State Management
    - Payment Integration
    - Realtime Features
    - Analytics Dashboard
    - Subscription Management
    - Notification System
 
-6. **Production Preparation**
+6. **Production Preparation** (Pending)
    - Performance Optimization
    - Security Hardening
    - Testing Suite
    - Deployment Pipeline
    - Documentation
 
+## API Endpoints
+- `/api/user/profile`: Get user profile (protected)
+- `/api/user/settings`: Update user settings (protected)
+- `/api/telegram/webhook`: Webhook for Telegram updates
+- `/api/telegram/send`: Send message via Telegram bot (protected)
+
+## Frontend Pages
+- `/dashboard`: Main dashboard overview
+- `/dashboard/channels`: Manage Telegram channels
+- `/dashboard/settings`: User and account settings
+
 ## Getting Started
+
+### Backend Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/cemakgun/Telegram-Monetization-Tool.git

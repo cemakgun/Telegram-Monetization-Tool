@@ -8,42 +8,40 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { testConnection } = require('./config/database');
+const userRoutes = require('./routes/user');
+const telegramRoutes = require('./routes/telegram');
+const requireAuth = require('./middleware/auth');
 
 // Initialize Express application
 const app = express();
 const port = process.env.PORT || 3001;
 
 // Middleware Configuration
-// Enable CORS for cross-origin requests
 app.use(cors());
-// Parse JSON request bodies
 app.use(express.json());
 
-/**
- * Health Check Endpoint
- * Used to verify that the server is running and responsive
- * Returns: { status: 'ok', timestamp: <current_time> }
- */
+// Routes
+app.use('/api/user', userRoutes);
+app.use('/api/telegram', telegramRoutes);
+
+// Health Check Endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-/**
- * Server Startup Function
- * Performs necessary checks and initializations before starting the server:
- * 1. Tests database connectivity
- * 2. Starts the HTTP server if all checks pass
- */
+// Protected route example
+app.get('/api/protected', requireAuth, (req, res) => {
+  res.json({ message: 'This is a protected route', user: req.auth });
+});
+
 async function startServer() {
   try {
-    // Verify database connection before starting server
     const isConnected = await testConnection();
     if (!isConnected) {
       console.error('Failed to connect to database. Server will not start.');
       process.exit(1);
     }
 
-    // Start HTTP server
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
     });
@@ -53,5 +51,4 @@ async function startServer() {
   }
 }
 
-// Initialize server
 startServer();
