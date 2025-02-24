@@ -2,40 +2,40 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Start Development",
-      "type": "shell",
-      "command": "npm run dev",
-      "isBackground": true,
-      "problemMatcher": {
-        "pattern": {
-          "regexp": ""
-        },
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": "starting",
-          "endsPattern": "started"
-        }
+      "label": "Start Full Stack Debug",
+      "dependsOn": ["Start Backend Debug", "Start Frontend Debug"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
       }
     },
     {
-      "label": "Install Dependencies",
-      "type": "shell",
-      "command": "npm run install:all",
-      "problemMatcher": []
+      "label": "Start Backend Debug",
+      "type": "npm",
+      "script": "dev",
+      "path": "backend/",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
     },
     {
-      "label": "Start Backend",
-      "type": "shell",
-      "command": "npm run dev:backend",
+      "label": "Start Frontend Debug",
+      "type": "npm",
+      "script": "dev",
+      "path": "frontend/",
+      "problemMatcher": [],
       "isBackground": true,
-      "problemMatcher": []
-    },
-    {
-      "label": "Start Frontend",
-      "type": "shell",
-      "command": "npm run dev:frontend",
-      "isBackground": true,
-      "problemMatcher": []
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
     }
   ]
 }
