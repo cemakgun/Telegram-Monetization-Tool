@@ -2,39 +2,76 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Start Full Stack Debug",
-      "dependsOn": ["Start Backend Debug", "Start Frontend Debug"],
+      "label": "Start Development",
+      "type": "shell",
+      "command": "npm run dev",
       "group": {
         "kind": "build",
         "isDefault": true
       },
       "presentation": {
         "reveal": "always",
+        "panel": "new",
+        "group": "develop"
+      }
+    },
+    {
+      "label": "Start Frontend",
+      "type": "shell",
+      "command": "npm run dev:frontend",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "develop"
+      }
+    },
+    {
+      "label": "Start Backend",
+      "type": "shell",
+      "command": "npm run dev:backend",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "develop"
+      }
+    },
+    {
+      "label": "Install Dependencies",
+      "type": "shell",
+      "command": "npm run install:all",
+      "presentation": {
+        "reveal": "always",
         "panel": "new"
       }
     },
     {
-      "label": "Start Backend Debug",
-      "type": "npm",
-      "script": "dev",
-      "path": "backend/",
-      "problemMatcher": [],
-      "isBackground": true,
+      "label": "Docker Compose Up",
+      "type": "shell",
+      "command": "docker-compose up -d",
       "presentation": {
         "reveal": "always",
-        "panel": "dedicated"
+        "panel": "new",
+        "group": "docker"
       }
     },
     {
-      "label": "Start Frontend Debug",
-      "type": "npm",
-      "script": "dev",
-      "path": "frontend/",
-      "problemMatcher": [],
-      "isBackground": true,
+      "label": "Docker Compose Down",
+      "type": "shell",
+      "command": "docker-compose down",
       "presentation": {
         "reveal": "always",
-        "panel": "dedicated"
+        "panel": "new",
+        "group": "docker"
+      }
+    },
+    {
+      "label": "Docker Logs",
+      "type": "shell",
+      "command": "docker-compose logs -f",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "docker"
       }
     }
   ]
